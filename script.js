@@ -15,5 +15,11 @@ const addNewTodo = () => {
   text.value = '';
 };
 
-// ➕ 버튼에 이벤트 연결
 addTodoBtn.addEventListener('click', addNewTodo);
+
+// 선택한 할 일을 삭제
+const deleteTodo = (e) => {
+  todoList.removeChild(e.target.parentNode);
+};
+
+todoList.addEventListener('click', deleteTodo);
