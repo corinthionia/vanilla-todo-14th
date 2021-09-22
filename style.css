@@ -18,7 +18,7 @@ body {
   justify-content: center;
 
   /* Coloring */
-  background: powderblue;
+  background: rgb(205, 230, 176);
 }
 
 .container {
@@ -33,43 +33,70 @@ body {
   background: white;
 }
 
-.titleBox {
-    font-size: 24px;
-    margin: 13px;
+.title-box {
+  background-color: powderblue;
+  height: 8%;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-left: 20px;
 }
 
-.inputBox {
-    background-color: orange;
-    height: 12%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.input-box {
+  background-color: powderblue;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.todoBox {
-    height: 40%;
-    background-color: yellow;
+.todo-box {
+  height: 40%;
+  background-color: yellow;
+  overflow: auto;
 }
 
-.doneListBox {
-    height: 40%;
-    background-color: pink;
+.done-list-box {
+  height: 40%;
+  background-color: pink;
+  overflow: auto;
 }
 
-input {
-    border: none;
-    border-radius: 15px;
-    padding: 5%;
-    height: 60%;
-    width: 80%;
-    margin: 5px;
+#todo-input {
+  border: none;
+  border-radius: 15px;
+  padding: 5%;
+  height: 60%;
+  width: 80%;
+  margin: 5px;
 }
 
-button {
-    border: none;
-    background: none;
-    border-radius: 10px;
-    height: 60%;
-    margin: 10px;
+#addTodoBtn,
+#addTodoBtn:hover {
+  border: none;
+  background: none;
+  border-radius: 10px;
+  height: 60%;
+  margin: 5px;
+  cursor: pointer;
 }
 
+ul {
+  font-size: 20px;
+}
+
+li,
+li:hover {
+  margin: 10px;
+  cursor: pointer;
+}
+
+#delete-btn,
+#delete-btn:hover {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+:focus {
+  outline: none;
+}
