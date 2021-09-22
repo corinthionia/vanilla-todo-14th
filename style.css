@@ -21,15 +21,8 @@ body {
   background: powderblue;
 }
 
-input,
-button,
-ul,
-p {
-  all: unset;
-}
-
 .container {
-  width: 350px;
+  width: 400px;
   height: 600px;
 
   display: flex;
@@ -39,3 +32,44 @@ p {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
   background: white;
 }
+
+.titleBox {
+    font-size: 24px;
+    margin: 13px;
+}
+
+.inputBox {
+    background-color: orange;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todoBox {
+    height: 40%;
+    background-color: yellow;
+}
+
+.doneListBox {
+    height: 40%;
+    background-color: pink;
+}
+
+input {
+    border: none;
+    border-radius: 15px;
+    padding: 5%;
+    height: 60%;
+    width: 80%;
+    margin: 5px;
+}
+
+button {
+    border: none;
+    background: none;
+    border-radius: 10px;
+    height: 60%;
+    margin: 10px;
+}
+
