@@ -35,13 +35,18 @@ const toggleTodo = (e) => {
 
 // 할 일 목록을 화면에 렌더하는 함수
 const render = () => {
-  todoList.innerHTML = 'TO DO';
-  doneList.innerHTML = 'DONE';
+  const doneTodoCnt = items.filter((todo) => todo.isDone).length;
+  const todoCnt = items.length - doneTodoCnt;
+
+  todoList.innerHTML = `TO DO (${todoCnt})`;
+  doneList.innerHTML = `DONE (${doneTodoCnt})`;
 
   items.map((todo) => {
     const todoListItem = document.createElement('li');
-    todoListItem.textContent = todo.text;
-    todoListItem.onclick = toggleTodo;
+    const todoListItemText = document.createElement('span');
+    todoListItemText.textContent = todo.text;
+    todoListItemText.addEventListener('click', toggleTodo);
+    todoListItem.appendChild(todoListItemText);
 
     // 삭제 버튼 만들어서 붙이기
     const deleteBtn = document.createElement('i');
