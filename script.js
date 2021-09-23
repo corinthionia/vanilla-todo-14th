@@ -2,7 +2,7 @@ const inputText = document.querySelector('#todo-input');
 const todoList = document.querySelector('#todo-list');
 const doneList = document.querySelector('#done-list');
 
-let items = [{ text: '할일할일', isDone: false }];
+let items = [];
 
 // 입력한 할 일을 리스트에 추가
 const addNewTodo = () => {
@@ -60,6 +60,17 @@ const render = () => {
       todoList.append(todoListItem);
     }
   });
+
+  localStorage.setItem('todoItems', JSON.stringify(items));
 };
 
-render();
+// Local Storage에 저장된 목록 불러오기
+const getFromLocalStorage = () => {
+  const savedItems = localStorage.getItem('todoItems');
+  if (savedItems) {
+    items = JSON.parse(savedItems);
+    render();
+  }
+};
+
+getFromLocalStorage();
