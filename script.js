@@ -2,7 +2,7 @@ const inputText = document.querySelector('#todo-input');
 const todoList = document.querySelector('#todo-list');
 const doneList = document.querySelector('#done-list');
 
-const items = [];
+let items = [];
 
 // 입력한 할 일을 리스트에 추가
 const addNewTodo = () => {
@@ -19,16 +19,27 @@ const addNewTodo = () => {
 
 addTodoBtn.addEventListener('click', addNewTodo);
 
+// 삭제 버튼을 누르면 삭제
+const deleteTodo = (e) => {
+  items = items.filter((todo) => todo.text !== e.target.parentNode.textContent);
+
+  render();
+};
+
 // 할 일 목록을 화면에 렌더하는 함수
 const render = () => {
-  // 삭제 버튼 붙이기
-  const deleteBtn = document.createElement('i');
-  deleteBtn.setAttribute('class', 'delete-btn');
-
-  const todoListItem = document.createElement('li');
+  todoList.innerHTML = 'TO DO';
+  doneList.innerHTML = 'DONE';
 
   items.map((todo) => {
+    const todoListItem = document.createElement('li');
     todoListItem.textContent = todo.text;
+
+    // 삭제 버튼 만들어서 붙이기
+    const deleteBtn = document.createElement('i');
+    deleteBtn.setAttribute('class', 'delete-btn');
+    deleteBtn.addEventListener('click', deleteTodo);
+
     todoListItem.appendChild(deleteBtn);
     if (todo.isDone) {
       doneList.append(todoListItem);
