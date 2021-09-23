@@ -1,25 +1,18 @@
-const todoList = document.querySelector('#todo-list');
-const text = document.querySelector('#todo-input');
+const inputText = document.querySelector('#todo-input');
+
+const todoList = [];
+const doneList = [];
 
 // 입력한 할 일을 리스트에 추가
 const addNewTodo = () => {
-  const deleteBtn = document.createElement('button');
-  deleteBtn.setAttribute('id', 'delete-btn');
-  deleteBtn.innerText = '✖';
+  const todoObject = {
+    text: inputText.value,
+    isDone: false,
+  };
 
-  const newTodo = document.createElement('li');
-  newTodo.textContent = text.value;
-  newTodo.append(deleteBtn);
-  todoList.append(newTodo);
+  todoList.push(todoObject);
 
-  text.value = '';
+  inputText.value = '';
 };
 
 addTodoBtn.addEventListener('click', addNewTodo);
-
-// 선택한 할 일을 삭제
-const deleteTodo = (e) => {
-  todoList.removeChild(e.target.parentNode);
-};
-
-todoList.addEventListener('click', deleteTodo);

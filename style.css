@@ -100,3 +100,8 @@ li:hover {
 :focus {
   outline: none;
 }
+
+.doneTodo {
+  color: lightgray;
+  text-decoration: line-through;
+}
