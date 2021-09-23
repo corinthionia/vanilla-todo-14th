@@ -45,8 +45,8 @@ const render = () => {
   // 할 일과 완료한 일의 개수 세기
   const doneTodoCnt = items.filter((todo) => todo.isDone).length;
   const todoCnt = items.length - doneTodoCnt;
-  todoList.innerHTML = `TO DO (${todoCnt})`;
-  doneList.innerHTML = `DONE (${doneTodoCnt})`;
+  todoList.innerHTML = `📋 TO DO (${todoCnt})`;
+  doneList.innerHTML = `💿 DONE (${doneTodoCnt})`;
 
   items.map((todo) => {
     const todoListItem = document.createElement('li');

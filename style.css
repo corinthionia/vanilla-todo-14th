@@ -3,9 +3,17 @@ body {
   margin: 0;
 }
 
+@font-face {
+  font-family: 'GowunDodum-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'GowunDodum-Regular';
 }
 
 body {
@@ -18,99 +26,130 @@ body {
   justify-content: center;
 
   /* Coloring */
-  background: rgb(205, 230, 176);
+  background: radial-gradient(
+      circle at 50% 0,
+      rgba(255, 38, 38, 0.5),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    radial-gradient(
+      circle at 6.7% 75%,
+      rgba(30, 30, 255, 0.5),
+      rgba(0, 0, 255, 0) 70.71%
+    ),
+    radial-gradient(
+        circle at 93.3% 75%,
+        rgba(63, 255, 63, 0.287),
+        rgba(0, 255, 0, 0) 70.71%
+      )
+      beige;
 }
 
 .container {
-  width: 400px;
+  width: 360px;
   height: 600px;
 
   display: flex;
   flex-direction: column;
   align-items: stretch;
 
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
   background: white;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
 }
 
+/* 제목이 들어가는 부분 */
 .title-box {
-  background-color: powderblue;
   height: 8%;
-  font-size: 24px;
+
   padding-top: 10px;
   padding-left: 20px;
+
+  font-size: 24px;
+  background: rgba(255, 255, 255, 0.096);
 }
 
+/* 인풋 필드와 추가 버튼이 들어가는 부분 */
 .input-box {
-  background-color: powderblue;
   height: 12%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  border-bottom: solid 1px lightgrey;
+  background: rgba(255, 255, 255, 0.096);
 }
 
-.todo-box {
-  height: 40%;
-  background-color: yellow;
-  overflow: auto;
-}
-
-.done-list-box {
-  height: 40%;
-  background-color: pink;
-  overflow: auto;
-}
-
+/* 인풋 필드 */
 #todo-input {
-  border: none;
-  border-radius: 15px;
-  padding: 5%;
-  height: 60%;
   width: 80%;
+  height: 60%;
+
   margin: 5px;
+  padding: 5%;
+
+  border-radius: 15px;
+  border: solid 1px lightgrey;
 }
 
+/* 할 일 추가 버튼 */
 #addTodoBtn,
 #addTodoBtn:hover {
-  border: none;
-  background: none;
-  border-radius: 10px;
   height: 60%;
+
   margin: 5px;
+
+  border: none;
+  border-radius: 10px;
+  background: none;
+
   cursor: pointer;
 }
 
-ul {
-  font-size: 20px;
+/* 할일 삭제 버튼 */
+.delete-btn {
+  width: 15px;
+  height: 15px;
+
+  background-image: url('img/bin.png');
+  background-size: cover;
+
+  margin-left: 15px;
+  display: inline-block;
+
+  border: none;
+  cursor: pointer;
 }
 
 li,
 li:hover {
-  margin: 10px;
+  margin: 20px;
+  font-size: 20px;
   cursor: pointer;
+}
+
+/* 진행 중인 할 일이 표시되는 부분 */
+.todo-box {
+  height: 40%;
+
+  border-bottom: solid 1px lightgray;
+
+  overflow: auto;
+}
+
+/* 완료한 할 일이 표시되는 부분 */
+.done-list-box {
+  height: 40%;
+
+  overflow: auto;
+}
+
+#done-list li {
+  color: lightgray;
+
+  text-decoration: line-through;
 }
 
 :focus {
   outline: none;
-}
-
-.doneTodo {
-  color: lightgray;
-  text-decoration: line-through;
-}
-
-.delete-btn {
-  background-image: url('img/bin.png');
-  background-size: cover;
-  width: 15px;
-  height: 15px;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  margin-left: 15px;
-}
-
-#done-list li {
-  text-decoration: line-through;
-  color: white;
 }
