@@ -11,7 +11,11 @@ const addNewTodo = () => {
     isDone: false,
   };
 
-  items.push(todoObject);
+  // 공백 입력, 중복 입력 방지
+  const index = items.findIndex((todo) => todo.text == inputText.value);
+  if (inputText.value !== '' && index === -1) {
+    items.push(todoObject);
+  }
 
   inputText.value = '';
   render();
