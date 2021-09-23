@@ -90,13 +90,6 @@ li:hover {
   cursor: pointer;
 }
 
-#delete-btn,
-#delete-btn:hover {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
 :focus {
   outline: none;
 }
@@ -104,4 +97,15 @@ li:hover {
 .doneTodo {
   color: lightgray;
   text-decoration: line-through;
+}
+
+.delete-btn {
+  background-image: url('img/bin.png');
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 15px;
 }

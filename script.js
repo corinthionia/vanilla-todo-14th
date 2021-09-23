@@ -21,9 +21,15 @@ addTodoBtn.addEventListener('click', addNewTodo);
 
 // 할 일 목록을 화면에 렌더하는 함수
 const render = () => {
+  // 삭제 버튼 붙이기
+  const deleteBtn = document.createElement('i');
+  deleteBtn.setAttribute('class', 'delete-btn');
+
   const todoListItem = document.createElement('li');
+
   items.map((todo) => {
     todoListItem.textContent = todo.text;
+    todoListItem.appendChild(deleteBtn);
     if (todo.isDone) {
       doneList.append(todoListItem);
     } else {
