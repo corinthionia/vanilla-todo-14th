@@ -109,3 +109,8 @@ li:hover {
   display: inline-block;
   margin-left: 15px;
 }
+
+#done-list li {
+  text-decoration: line-through;
+  color: white;
+}
