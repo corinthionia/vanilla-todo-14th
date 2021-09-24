@@ -10,6 +10,7 @@ let items = [];
 // 입력한 할 일을 items 리스트에 추가
 const addNewTodo = () => {
   const todoObject = {
+    id: null,
     text: inputText.value,
     isDone: false,
   };
@@ -27,7 +28,7 @@ const addNewTodo = () => {
 
 addTodoBtn.addEventListener('click', addNewTodo);
 
-// 엔터를 눌러도 할 일이 입력되도록
+// 엔터를 눌러도 입력되도록
 const enterKey = () => {
   if (window.event.keyCode == 13) {
     addNewTodo();
@@ -36,14 +37,15 @@ const enterKey = () => {
 
 // 삭제 버튼을 누르면 해당하는 항목 삭제
 const deleteTodo = (e) => {
-  items = items.filter((todo) => todo.text !== e.target.parentNode.textContent);
-
+  items = items.filter((todo) => todo.id !== parseInt(e.target.parentNode.id));
   render();
 };
 
 // 할 일의 isDone을 토글
 const toggleTodo = (e) => {
-  const todo = items.find((todo) => todo.text === e.target.textContent);
+  const todo = items.find(
+    (todo) => todo.id === parseInt(e.target.parentNode.id)
+  );
   todo.isDone = !todo.isDone;
 
   render();
@@ -51,6 +53,7 @@ const toggleTodo = (e) => {
 
 // 할 일 목록을 화면에 렌더링
 const render = () => {
+  // 렌더링 전 todoList와 doneList 비우기 (이 과정이 없으면 화면에 중복된 값이 나타남)
   todoList.innerHTML = '';
   doneList.innerHTML = '';
 
@@ -60,12 +63,17 @@ const render = () => {
   todoListTitle.innerHTML = `📋 TO DO (${todoCnt})`;
   doneListTitle.innerHTML = `💿 DONE (${doneTodoCnt})`;
 
-  items.map((todo) => {
+  // 리스트로 만들어 보여주기
+  items.map((todo, index) => {
     const todoListItem = document.createElement('li');
+    todoListItem.setAttribute('id', index);
     const todoListItemText = document.createElement('span');
     todoListItemText.textContent = todo.text;
     todoListItemText.addEventListener('click', toggleTodo);
     todoListItem.appendChild(todoListItemText);
+
+    // 각 객체에 id 값 부여
+    todo.id = index;
 
     // 삭제 버튼 만들어서 붙이기
     const deleteBtn = document.createElement('i');
