@@ -68,9 +68,6 @@ const render = () => {
     // id 값 부여
     todo.id = index;
 
-    // 할 일, 완료한 일 개수 세기
-    countTodo();
-
     // 리스트 만들기
     const todoListItem = document.createElement('li');
     const todoListItemText = document.createElement('span');
@@ -93,6 +90,9 @@ const render = () => {
 
   // Local Storage에 items 배열을 저장
   localStorage.setItem('todoItems', JSON.stringify(items));
+
+  // 할 일, 완료한 일 개수 세기
+  countTodo();
 };
 
 // Local Storage에 저장된 목록 불러오기
