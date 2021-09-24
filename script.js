@@ -1,6 +1,9 @@
 const inputText = document.querySelector('#todo-input');
-const todoList = document.querySelector('#todo-list');
-const doneList = document.querySelector('#done-list');
+const addTodoBtn = document.querySelector('#add-todo-btn');
+const todoListTitle = document.querySelector('#todo-list-title');
+const doneListTitle = document.querySelector('#done-list-title');
+const todoList = document.querySelector('.todo-list');
+const doneList = document.querySelector('.done-list');
 
 let items = [];
 
@@ -13,14 +16,13 @@ const addNewTodo = () => {
 
   // 공백 입력, 중복 입력 방지
   const index = items.findIndex((todo) => todo.text == inputText.value);
-  if (inputText.value !== '' && index === -1) {
+  if (inputText.value && index === -1) {
     items.push(todoObject);
+    render();
   }
 
   // 할 일 추가 후 인풋 값 비우기
   inputText.value = '';
-
-  render();
 };
 
 addTodoBtn.addEventListener('click', addNewTodo);
@@ -42,11 +44,14 @@ const toggleTodo = (e) => {
 
 // 할 일 목록을 화면에 렌더링
 const render = () => {
+  todoList.innerHTML = '';
+  doneList.innerHTML = '';
+
   // 할 일과 완료한 일의 개수 세기
   const doneTodoCnt = items.filter((todo) => todo.isDone).length;
   const todoCnt = items.length - doneTodoCnt;
-  todoList.innerHTML = `📋 TO DO (${todoCnt})`;
-  doneList.innerHTML = `💿 DONE (${doneTodoCnt})`;
+  todoListTitle.innerHTML = `📋 TO DO (${todoCnt})`;
+  doneListTitle.innerHTML = `💿 DONE (${doneTodoCnt})`;
 
   items.map((todo) => {
     const todoListItem = document.createElement('li');
@@ -61,11 +66,9 @@ const render = () => {
     deleteBtn.addEventListener('click', deleteTodo);
 
     todoListItem.appendChild(deleteBtn);
-    if (todo.isDone) {
-      doneList.append(todoListItem);
-    } else {
-      todoList.append(todoListItem);
-    }
+    todo.isDone
+      ? doneList.appendChild(todoListItem)
+      : todoList.appendChild(todoListItem);
   });
 
   // Local Storage에 items 배열을 저장

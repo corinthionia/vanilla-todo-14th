@@ -9,17 +9,19 @@
 
   <body>
     <div class="container">
-      <div class="title-box">📚 To do list</div>
-      <div class="input-box">
+      <header>📚 To do list</header>
+      <section class="input-box">
         <input id="todo-input" placeholder="할 일을 입력하세요" />
-        <button id="addTodoBtn">➕</button>
-      </div>
-      <div class="todo-box">
-        <ul id="todo-list"></ul>
-      </div>
-      <div class="done-list-box">
-        <ul id="done-list"></ul>
-      </div>
+        <button id="add-todo-btn">➕</button>
+      </section>
+      <section class="todo-list-box">
+        <h4 id="todo-list-title"></h4>
+        <ul class="todo-list"></ul>
+      </section>
+      <section class="done-list-box">
+        <h4 id="done-list-title"></h4>
+        <ul class="done-list"></ul>
+      </section>
     </div>
   </body>
   <script src="script.js"></script>
