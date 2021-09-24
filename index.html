@@ -3,15 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>📚 To do list</title>
+    <title>📚 TO DO LIST</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div class="container">
-      <header>📚 To do list</header>
+      <header>📚 투두리스트</header>
       <section class="input-box">
-        <input id="todo-input" placeholder="할 일을 입력하세요" />
+        <input
+          id="todo-input"
+          placeholder="할 일을 입력하세요"
+          onkeyup="enterKey();"
+        />
         <button id="add-todo-btn">➕</button>
       </section>
       <section class="todo-list-box">

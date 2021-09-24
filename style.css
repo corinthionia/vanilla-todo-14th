@@ -4,16 +4,16 @@ body {
 }
 
 @font-face {
-  font-family: 'Pretendard-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+  font-family: 'SpoqaHanSansNeo-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff')
     format('woff');
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Pretendard-Regular';
+  font-family: 'SpoqaHanSansNeo-Regular';
 }
 
 body {
@@ -58,9 +58,12 @@ body {
 }
 
 header {
-  height: 5%;
+  height: 10%;
+
   margin: 5%;
+
   font-size: 24px;
+  font-weight: 500;
 }
 
 /* section: 인풋 필드, 추가 버튼  */
@@ -80,7 +83,7 @@ header {
   width: 80%;
   height: 60%;
 
-  margin: 5px;
+  margin: 1%;
   padding: 5%;
 
   border-radius: 15px;
@@ -92,7 +95,7 @@ header {
 #add-todo-btn:hover {
   height: 60%;
 
-  margin: 5px;
+  margin: 1%;
 
   border: none;
   border-radius: 10px;

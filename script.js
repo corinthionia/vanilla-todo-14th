@@ -27,6 +27,13 @@ const addNewTodo = () => {
 
 addTodoBtn.addEventListener('click', addNewTodo);
 
+// 엔터를 눌러도 할 일이 입력되도록
+const enterKey = () => {
+  if (window.event.keyCode == 13) {
+    addNewTodo();
+  }
+};
+
 // 삭제 버튼을 누르면 해당하는 항목 삭제
 const deleteTodo = (e) => {
   items = items.filter((todo) => todo.text !== e.target.parentNode.textContent);
