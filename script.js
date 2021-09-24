@@ -7,7 +7,7 @@ const doneList = document.querySelector('.done-list');
 
 let items = [];
 
-// 입력한 할 일을 items 리스트에 추가
+// 입력한 할 일을 items에 추가
 const addNewTodo = () => {
   const todoObject = {
     id: null,
@@ -63,7 +63,7 @@ const render = () => {
 
   // 리스트로 만들어 보여주기
   items.map((todo, index) => {
-    // 각 객체에 id 값 부여
+    // id 값 부여
     todo.id = index;
 
     // 리스트 만들기
