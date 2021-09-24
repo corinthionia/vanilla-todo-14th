@@ -110,6 +110,7 @@ header {
   height: 40%;
 }
 
+/* item의 개수를 표시하는 텍스트 */
 h4 {
   margin: 5%;
 }
