@@ -66,8 +66,6 @@ header {
 .input-box {
   height: 15%;
 
-  margin-top: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,7 +117,7 @@ h4 {
 /* ul: 리스트가 표시되는 부분 */
 .todo-list,
 .done-list {
-  height: 65%;
+  height: 156px;
   overflow: auto;
 }
 
@@ -127,9 +125,9 @@ h4 {
 li,
 li:hover {
   margin: 20px;
-
   font-size: 20px;
   cursor: pointer;
+  flex-direction: row;
 }
 
 /* 삭제 버튼 */
@@ -141,7 +139,7 @@ li:hover {
   background-size: cover;
 
   margin-left: 15px;
-  display: inline-block;
+  display: inline-flex;
 
   border: none;
   cursor: pointer;
