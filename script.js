@@ -53,6 +53,7 @@ const toggleTodo = (e) => {
 const countTodo = () => {
   const doneTodoCnt = items.filter((todo) => todo.isDone).length;
   const todoCnt = items.length - doneTodoCnt;
+
   todoListTitle.innerHTML = `📋 TO DO (${todoCnt})`;
   doneListTitle.innerHTML = `💿 DONE (${doneTodoCnt})`;
 };
@@ -82,10 +83,8 @@ const render = () => {
     deleteBtn.setAttribute('id', 'bin' + index);
     deleteBtn.addEventListener('click', deleteTodo);
 
-    todoListItem.appendChild(deleteBtn);
-    todo.isDone
-      ? doneList.appendChild(todoListItem)
-      : todoList.appendChild(todoListItem);
+    todoListItem.append(deleteBtn);
+    todo.isDone ? doneList.append(todoListItem) : todoList.append(todoListItem);
   });
 
   // Local Storage에 items 배열을 저장
