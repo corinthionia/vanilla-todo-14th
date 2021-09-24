@@ -68,6 +68,7 @@ const render = () => {
     // id 값 부여
     todo.id = index;
 
+    // 할 일, 완료한 일 개수 세기
     countTodo();
 
     // 리스트 만들기
