@@ -37,15 +37,13 @@ const enterKey = () => {
 
 // 삭제 버튼을 누르면 해당하는 항목 삭제
 const deleteTodo = (e) => {
-  items = items.filter((todo) => todo.id !== parseInt(e.target.parentNode.id));
+  items = items.filter((todo) => 'bin' + todo.id !== e.target.id);
   render();
 };
 
 // 할 일의 isDone을 토글
 const toggleTodo = (e) => {
-  const todo = items.find(
-    (todo) => todo.id === parseInt(e.target.parentNode.id)
-  );
+  const todo = items.find((todo) => 'todo' + todo.id === e.target.id);
   todo.isDone = !todo.isDone;
 
   render();
@@ -70,8 +68,9 @@ const render = () => {
 
     // 리스트 만들기
     const todoListItem = document.createElement('li');
-    todoListItem.setAttribute('id', index);
+    // todoListItem.setAttribute('id', index);
     const todoListItemText = document.createElement('span');
+    todoListItemText.setAttribute('id', 'todo' + index);
     todoListItemText.textContent = todo.text;
     todoListItemText.addEventListener('click', toggleTodo);
     todoListItem.appendChild(todoListItemText);
@@ -79,6 +78,7 @@ const render = () => {
     // 삭제 버튼 만들어서 붙이기
     const deleteBtn = document.createElement('i');
     deleteBtn.setAttribute('class', 'delete-btn');
+    deleteBtn.setAttribute('id', 'bin' + index);
     deleteBtn.addEventListener('click', deleteTodo);
 
     todoListItem.appendChild(deleteBtn);
