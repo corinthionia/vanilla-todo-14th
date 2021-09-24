@@ -68,6 +68,8 @@ const render = () => {
     // id 값 부여
     todo.id = index;
 
+    countTodo();
+
     // 리스트 만들기
     const todoListItem = document.createElement('li');
     const todoListItemText = document.createElement('span');
