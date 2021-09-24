@@ -49,17 +49,19 @@ const toggleTodo = (e) => {
   render();
 };
 
+// 할 일과 완료한 일의 개수 세기
+const countTodo = () => {
+  const doneTodoCnt = items.filter((todo) => todo.isDone).length;
+  const todoCnt = items.length - doneTodoCnt;
+  todoListTitle.innerHTML = `📋 TO DO (${todoCnt})`;
+  doneListTitle.innerHTML = `💿 DONE (${doneTodoCnt})`;
+};
+
 // 할 일 목록을 화면에 렌더링
 const render = () => {
   // 렌더링 전 todoList와 doneList 비우기
   todoList.innerHTML = '';
   doneList.innerHTML = '';
-
-  // 할 일과 완료한 일의 개수 세기
-  const doneTodoCnt = items.filter((todo) => todo.isDone).length;
-  const todoCnt = items.length - doneTodoCnt;
-  todoListTitle.innerHTML = `📋 TO DO (${todoCnt})`;
-  doneListTitle.innerHTML = `💿 DONE (${doneTodoCnt})`;
 
   // 리스트로 만들어 보여주기
   items.map((todo, index) => {
@@ -99,4 +101,5 @@ const getFromLocalStorage = () => {
   }
 };
 
+countTodo();
 getFromLocalStorage();
