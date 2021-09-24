@@ -68,7 +68,6 @@ const render = () => {
 
     // 리스트 만들기
     const todoListItem = document.createElement('li');
-    // todoListItem.setAttribute('id', index);
     const todoListItemText = document.createElement('span');
     todoListItemText.setAttribute('id', 'todo' + index);
     todoListItemText.textContent = todo.text;

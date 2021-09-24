@@ -50,7 +50,6 @@ body {
 
   display: flex;
   flex-direction: column;
-  align-items: stretch;
 
   border-radius: 20px;
   background: white;
@@ -58,22 +57,22 @@ body {
 }
 
 header {
-  margin: 3% 3% 1% 3%;
-
+  margin: 5% 5% 0 5%;
   font-size: 24px;
   font-weight: 500;
 }
 
 /* section: 인풋 필드, 추가 버튼  */
 .input-box {
-  height: 10%;
+  height: 15%;
+
+  margin-top: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   border-bottom: solid 1px lightgrey;
-  /*background: rgba(255, 255, 255, 0.096);*/
 }
 
 /* 인풋 필드 */
@@ -106,13 +105,11 @@ header {
 .todo-list-box {
   height: 40%;
   border-bottom: solid 1px lightgray;
-  background: powderblue;
 }
 
 /* section: 완료한 할 일이 표시되는 부분 */
 .done-list-box {
   height: 40%;
-  background: yellowgreen;
 }
 
 h4 {
@@ -130,6 +127,7 @@ h4 {
 li,
 li:hover {
   margin: 20px;
+
   font-size: 20px;
   cursor: pointer;
 }
