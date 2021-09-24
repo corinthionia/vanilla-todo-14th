@@ -53,7 +53,7 @@ const toggleTodo = (e) => {
 
 // 할 일 목록을 화면에 렌더링
 const render = () => {
-  // 렌더링 전 todoList와 doneList 비우기 (이 과정이 없으면 화면에 중복된 값이 나타남)
+  // 렌더링 전 todoList와 doneList 비우기
   todoList.innerHTML = '';
   doneList.innerHTML = '';
 
@@ -65,15 +65,16 @@ const render = () => {
 
   // 리스트로 만들어 보여주기
   items.map((todo, index) => {
+    // 각 객체에 id 값 부여
+    todo.id = index;
+
+    // 리스트 만들기
     const todoListItem = document.createElement('li');
     todoListItem.setAttribute('id', index);
     const todoListItemText = document.createElement('span');
     todoListItemText.textContent = todo.text;
     todoListItemText.addEventListener('click', toggleTodo);
     todoListItem.appendChild(todoListItemText);
-
-    // 각 객체에 id 값 부여
-    todo.id = index;
 
     // 삭제 버튼 만들어서 붙이기
     const deleteBtn = document.createElement('i');
