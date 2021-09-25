@@ -16,7 +16,7 @@ const addNewTodo = () => {
   };
 
   // 공백 입력, 중복 입력 방지
-  const index = items.findIndex((todo) => todo.text == inputText.value);
+  const index = items.findIndex((todo) => todo.text === inputText.value);
   if (inputText.value && index === -1) {
     items.push(todoObject);
     render();
@@ -30,7 +30,7 @@ addTodoBtn.addEventListener('click', addNewTodo);
 
 // 엔터를 눌러도 입력되도록
 const enterKey = () => {
-  if (window.event.keyCode == 13) {
+  if (window.event.keyCode === 13) {
     addNewTodo();
   }
 };
@@ -51,6 +51,14 @@ const toggleTodo = (e) => {
 
 // 할 일 목록을 화면에 렌더링
 const render = () => {
+  // 할 일과 완료한 일의 개수 세기
+
+  const doneTodoCnt = items.filter((todo) => todo.isDone).length;
+  const todoCnt = items.length - doneTodoCnt;
+
+  todoListTitle.innerHTML = `📋 TO DO (${todoCnt})`;
+  doneListTitle.innerHTML = `💿 DONE (${doneTodoCnt})`;
+
   // 렌더링 전 todoList와 doneList 비우기
   todoList.innerHTML = '';
   doneList.innerHTML = '';
@@ -78,14 +86,6 @@ const render = () => {
     todo.isDone ? doneList.append(todoListItem) : todoList.append(todoListItem);
   });
 
-  // 할 일과 완료한 일의 개수 세기
-
-  const doneTodoCnt = items.filter((todo) => todo.isDone).length;
-  const todoCnt = items.length - doneTodoCnt;
-
-  todoListTitle.innerHTML = `📋 TO DO (${todoCnt})`;
-  doneListTitle.innerHTML = `💿 DONE (${doneTodoCnt})`;
-
   // Local Storage에 items 배열을 저장
   localStorage.setItem('todoItems', JSON.stringify(items));
 };
@@ -93,11 +93,12 @@ const render = () => {
 // Local Storage에 저장된 목록 불러오기
 const getFromLocalStorage = () => {
   const savedItems = localStorage.getItem('todoItems');
+
   if (savedItems) {
     items = JSON.parse(savedItems);
-    render();
   }
+
+  render();
 };
 
 getFromLocalStorage();
-render();
