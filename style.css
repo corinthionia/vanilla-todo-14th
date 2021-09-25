@@ -64,7 +64,7 @@ header {
 
 /* section: 인풋 필드, 추가 버튼  */
 .input-box {
-  height: 15%;
+  height: 90px;
 
   display: flex;
   align-items: center;

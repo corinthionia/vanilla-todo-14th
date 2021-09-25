@@ -8,7 +8,7 @@ const doneList = document.querySelector('.done-list');
 let items = [];
 
 // 입력한 할 일을 items에 추가
-const addNewTodo = () => {
+const addNewTodo = (e) => {
   const todoObject = {
     id: null,
     text: inputText.value,
@@ -24,6 +24,9 @@ const addNewTodo = () => {
 
   // 할 일 추가 후 인풋 값 비우기
   inputText.value = '';
+
+  // submit 후 페이지 새로고침 방지
+  e.preventDefault();
 };
 
 addTodoBtn.addEventListener('click', addNewTodo);
@@ -52,10 +55,8 @@ const toggleTodo = (e) => {
 // 할 일 목록을 화면에 렌더링
 const render = () => {
   // 할 일과 완료한 일의 개수 세기
-
   const doneTodoCnt = items.filter((todo) => todo.isDone).length;
   const todoCnt = items.length - doneTodoCnt;
-
   todoListTitle.innerHTML = `📋 TO DO (${todoCnt})`;
   doneListTitle.innerHTML = `💿 DONE (${doneTodoCnt})`;
 
@@ -93,10 +94,7 @@ const render = () => {
 // Local Storage에 저장된 목록 불러오기
 const getFromLocalStorage = () => {
   const savedItems = localStorage.getItem('todoItems');
-
-  if (savedItems) {
-    items = JSON.parse(savedItems);
-  }
+  savedItems && (items = JSON.parse(savedItems));
 
   render();
 };
