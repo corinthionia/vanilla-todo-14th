@@ -1,4 +1,4 @@
-const inputText = document.querySelector('#todo-input');
+const inputField = document.querySelector('#todo-input');
 const addTodoBtn = document.querySelector('#add-todo-btn');
 const todoListTitle = document.querySelector('#todo-list-title');
 const doneListTitle = document.querySelector('#done-list-title');
@@ -11,32 +11,25 @@ let items = [];
 const addNewTodo = (e) => {
   const todoObject = {
     id: null,
-    text: inputText.value,
+    text: inputField.value,
     isDone: false,
   };
 
   // 공백 입력, 중복 입력 방지
-  const index = items.findIndex((todo) => todo.text === inputText.value);
-  if (inputText.value && index === -1) {
+  const index = items.findIndex((todo) => todo.text === inputField.value);
+  if (inputField.value && index === -1) {
     items.push(todoObject);
     render();
   }
 
   // 할 일 추가 후 인풋 값 비우기
-  inputText.value = '';
+  inputField.value = '';
 
   // submit 후 페이지 새로고침 방지
   e.preventDefault();
 };
 
 addTodoBtn.addEventListener('click', addNewTodo);
-
-// 엔터를 눌러도 입력되도록
-const enterKey = () => {
-  if (window.event.keyCode === 13) {
-    addNewTodo();
-  }
-};
 
 // 삭제 버튼을 누르면 해당하는 항목 삭제
 const deleteTodo = (e) => {
@@ -65,7 +58,7 @@ const render = () => {
   doneList.innerHTML = '';
 
   // 리스트로 만들어 보여주기
-  items.map((todo, index) => {
+  items.forEach((todo, index) => {
     // id 값 부여
     todo.id = index;
 
