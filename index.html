@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla Todo</title>
+    <title>📚 TO DO LIST</title>
     <link rel="stylesheet" href="style.css" />
-</head>
+  </head>
 
-<body>
-    <div class="container"></div>
-</body>
-<script src="script.js"></script>
-
+  <body>
+    <div class="container">
+      <header>📚 투두리스트</header>
+      <form class="input-box">
+        <input id="todo-input" placeholder="할 일을 입력하세요" />
+        <button id="add-todo-btn">➕</button>
+      </form>
+      <section class="todo-list-box">
+        <h4 id="todo-list-title"></h4>
+        <ul class="todo-list"></ul>
+      </section>
+      <section class="done-list-box">
+        <h4 id="done-list-title"></h4>
+        <ul class="done-list"></ul>
+      </section>
+    </div>
+  </body>
+  <script src="script.js"></script>
 </html>

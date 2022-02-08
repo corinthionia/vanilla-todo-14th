@@ -1,0 +1,172 @@
+html,
+body {
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'SpoqaHanSansNeo-Regular';
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  /* Center Container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Coloring */
+  background: radial-gradient(
+      circle at 50% 0,
+      rgba(255, 38, 38, 0.5),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    radial-gradient(
+      circle at 6.7% 75%,
+      rgba(30, 30, 255, 0.5),
+      rgba(0, 0, 255, 0) 70.71%
+    ),
+    radial-gradient(
+        circle at 93.3% 75%,
+        rgba(63, 255, 63, 0.287),
+        rgba(0, 255, 0, 0) 70.71%
+      )
+      beige;
+}
+
+.container {
+  width: 360px;
+  height: 600px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+header {
+  margin: 5% 5% 0 5%;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* section: 인풋 필드, 추가 버튼  */
+.input-box {
+  height: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: solid 1px lightgrey;
+}
+
+/* 인풋 필드 */
+#todo-input {
+  width: 80%;
+  height: 60%;
+
+  margin: 1%;
+  padding: 5%;
+
+  border-radius: 15px;
+  border: solid 1px lightgrey;
+}
+
+/* 추가 버튼 */
+#add-todo-btn,
+#add-todo-btn:hover {
+  height: 60%;
+
+  margin: 1%;
+
+  border: none;
+  border-radius: 10px;
+  background: none;
+
+  cursor: pointer;
+}
+
+/* section: 진행 중인 할 일이 표시되는 부분 */
+.todo-list-box {
+  height: 40%;
+  border-bottom: solid 1px lightgray;
+}
+
+/* section: 완료한 할 일이 표시되는 부분 */
+.done-list-box {
+  height: 40%;
+}
+
+/* item의 개수를 표시하는 텍스트 */
+h4 {
+  margin: 5%;
+}
+
+/* ul: 리스트가 표시되는 부분 */
+.todo-list,
+.done-list {
+  height: 156px;
+  overflow: auto;
+}
+
+/* li: 할 일 목록 */
+li,
+li:hover {
+  margin: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  flex-direction: row;
+}
+
+/* 삭제 버튼 */
+.delete-btn {
+  width: 15px;
+  height: 15px;
+
+  background-image: url('img/bin.png');
+  background-size: cover;
+
+  margin-left: 15px;
+  display: inline-flex;
+
+  border: none;
+  cursor: pointer;
+}
+
+/* 완료한 할 일에 효과 주기 */
+.done-list li {
+  color: lightgray;
+  text-decoration: line-through;
+}
+
+:focus {
+  outline: none;
+}
+
+/* 스크롤바 디자인 */
+.todo-list::-webkit-scrollbar,
+.done-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.todo-list::-webkit-scrollbar-thumb,
+.done-list::-webkit-scrollbar-thumb {
+  background: #c8c8c8;
+
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
