@@ -125,8 +125,8 @@ h4 {
 /* li: 할 일 목록 */
 li,
 li:hover {
-  margin: 20px;
-  font-size: 20px;
+  margin: 16px;
+  font-size: 16px;
   cursor: pointer;
   flex-direction: row;
 }
